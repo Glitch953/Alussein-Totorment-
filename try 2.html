@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بطولة مدرسة الحسين الملكي الكروية الأولى</title>
+    <title>بطولة مدرسة الحسين الملكي الكروية</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -29,53 +29,52 @@
             background-color: #f5f5f5;
             color: var(--text-dark);
             line-height: 1.6;
-            font-size: 16px;
         }
         
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 15px;
+            padding: 0 20px;
         }
         
         header {
             background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
             color: white;
-            padding: 1.5rem 0;
+            padding: 2rem 0;
             text-align: center;
             box-shadow: var(--shadow);
         }
         
         .logo {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 0.75rem;
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 1rem;
             background-color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
+            font-size: 2.5rem;
             font-weight: bold;
             color: var(--primary-blue);
-            border: 3px solid var(--accent-yellow);
-            background-image: url('https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=HS');
+            border: 4px solid var(--accent-yellow);
+            background-image: url('https://via.placeholder.com/100x100/bbae1a/FFFFFF?text=HS');
             background-size: cover;
         }
         
         h1 {
-            font-size: 1.8rem;
+            font-size: 2.5rem;
             margin-bottom: 0.5rem;
         }
         
         .subtitle {
-            font-size: 1rem;
+            font-size: 1.2rem;
             opacity: 0.9;
         }
         
         nav {
             background-color: var(--dark-blue);
-            padding: 0.75rem 0;
+            padding: 1rem 0;
             position: sticky;
             top: 0;
             z-index: 100;
@@ -86,22 +85,19 @@
             display: flex;
             justify-content: center;
             list-style: none;
-            flex-wrap: wrap;
         }
         
         nav li {
-            margin: 3px 8px;
+            margin: 0 15px;
         }
         
         nav a {
             color: white;
             text-decoration: none;
             font-weight: 500;
-            padding: 6px 12px;
+            padding: 8px 16px;
             border-radius: 4px;
             transition: background-color 0.3s;
-            font-size: 0.9rem;
-            display: block;
         }
         
         nav a:hover {
@@ -109,16 +105,15 @@
         }
         
         section {
-            padding: 2rem 0;
+            padding: 3rem 0;
         }
         
         .section-title {
             text-align: center;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             color: var(--primary-blue);
             position: relative;
             padding-bottom: 10px;
-            font-size: 1.5rem;
         }
         
         .section-title:after {
@@ -127,7 +122,7 @@
             bottom: 0;
             right: 50%;
             transform: translateX(50%);
-            width: 60px;
+            width: 80px;
             height: 3px;
             background-color: var(--accent-yellow);
         }
@@ -135,22 +130,22 @@
         .about {
             background-color: white;
             border-radius: 8px;
-            padding: 1.5rem;
+            padding: 2rem;
             box-shadow: var(--shadow);
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
         }
         
         .tournament-structure {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
         }
         
         .structure-card {
             background-color: white;
             border-radius: 8px;
-            padding: 1.25rem;
+            padding: 1.5rem;
             box-shadow: var(--shadow);
             text-align: center;
             transition: transform 0.3s;
@@ -161,39 +156,38 @@
         }
         
         .structure-card i {
-            font-size: 2rem;
+            font-size: 2.5rem;
             color: var(--primary-blue);
-            margin-bottom: 0.75rem;
+            margin-bottom: 1rem;
         }
         
         .groups-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
         }
         
         .group {
             background-color: white;
             border-radius: 8px;
-            padding: 1.25rem;
+            padding: 1.5rem;
             box-shadow: var(--shadow);
         }
         
         .group-title {
             text-align: center;
             color: var(--primary-blue);
-            margin-bottom: 1.25rem;
-            padding-bottom: 8px;
+            margin-bottom: 1.5rem;
+            padding-bottom: 10px;
             border-bottom: 2px solid var(--accent-yellow);
-            font-size: 1.3rem;
         }
         
         .team {
             display: flex;
             align-items: center;
-            padding: 8px;
-            margin-bottom: 8px;
+            padding: 10px;
+            margin-bottom: 10px;
             border-radius: 6px;
             background-color: #f8f9fa;
             transition: background-color 0.3s;
@@ -204,17 +198,16 @@
         }
         
         .team-position {
-            width: 22px;
-            height: 22px;
+            width: 25px;
+            height: 25px;
             background-color: var(--primary-blue);
             color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.75rem;
-            margin-left: 8px;
-            flex-shrink: 0;
+            font-size: 0.8rem;
+            margin-left: 10px;
         }
         
         .team-logo {
@@ -226,33 +219,30 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-left: 10px;
+            margin-left: 15px;
             font-weight: bold;
             background-size: cover;
-            flex-shrink: 0;
         }
         
         .team-name {
             font-weight: 500;
             flex-grow: 1;
-            font-size: 0.9rem;
         }
         
         .team-points {
             background-color: var(--dark-blue);
             color: white;
-            padding: 3px 6px;
+            padding: 4px 8px;
             border-radius: 4px;
             font-weight: bold;
-            font-size: 0.8rem;
-            flex-shrink: 0;
+            font-size: 0.9rem;
         }
         
         .tournament-bracket {
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-top: 1.5rem;
+            margin-top: 2rem;
         }
         
         .round {
@@ -260,27 +250,26 @@
             flex-direction: column;
             justify-content: space-around;
             width: 100%;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
         }
         
         .round-title {
             text-align: center;
-            margin-bottom: 0.75rem;
+            margin-bottom: 1rem;
             color: var(--primary-blue);
             font-weight: bold;
-            font-size: 1.2rem;
         }
         
         .matches {
             display: flex;
             flex-direction: column;
-            gap: 0.75rem;
+            gap: 1rem;
         }
         
         .match {
             background-color: white;
             border-radius: 6px;
-            padding: 0.75rem;
+            padding: 1rem;
             box-shadow: var(--shadow);
             display: flex;
             justify-content: space-between;
@@ -293,25 +282,24 @@
         }
         
         .vs {
-            margin: 0 10px;
+            margin: 0 15px;
             color: #6c757d;
             font-weight: bold;
-            font-size: 0.9rem;
         }
         
         /* أنماط جديدة للفرق المشاركة */
         .teams-section {
             background-color: white;
             border-radius: 8px;
-            padding: 1.5rem;
+            padding: 2rem;
             box-shadow: var(--shadow);
         }
         
         .teams-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
         }
         
         .team-card {
@@ -330,27 +318,27 @@
         .team-header {
             background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
             color: white;
-            padding: 1.25rem;
+            padding: 1.5rem;
             text-align: center;
         }
         
         .team-logo-large {
-            width: 60px;
-            height: 60px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             background-color: white;
-            margin: 0 auto 0.75rem;
+            margin: 0 auto 1rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            font-size: 2rem;
             font-weight: bold;
             color: var(--primary-blue);
             background-size: cover;
         }
         
         .team-body {
-            padding: 1.25rem;
+            padding: 1.5rem;
             text-align: center;
         }
         
@@ -358,45 +346,37 @@
             width: 100%;
             height: 150px;
             background-color: #e9ecef;
-            margin-bottom: 0.75rem;
+            margin-bottom: 1rem;
             border-radius: 4px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: #6c757d;
             background-size: cover;
-            font-size: 0.9rem;
         }
         
         /* أنماط جديدة لجدول المباريات */
-        .matches-table-container {
-            overflow-x: auto;
-            margin-top: 1.5rem;
-        }
-        
         .matches-table {
             width: 100%;
             border-collapse: collapse;
+            margin-top: 2rem;
             background-color: white;
             border-radius: 8px;
             overflow: hidden;
             box-shadow: var(--shadow);
-            min-width: 600px;
         }
         
         .matches-table th {
             background-color: var(--primary-blue);
             color: white;
-            padding: 0.75rem;
+            padding: 1rem;
             text-align: center;
-            font-size: 0.9rem;
         }
         
         .matches-table td {
-            padding: 0.75rem;
+            padding: 1rem;
             text-align: center;
             border-bottom: 1px solid #e9ecef;
-            font-size: 0.85rem;
         }
         
         .matches-table tr:nth-child(even) {
@@ -420,26 +400,25 @@
         footer {
             background-color: var(--dark-blue);
             color: white;
-            padding: 1.5rem 0;
+            padding: 2rem 0;
             text-align: center;
-            margin-top: 1.5rem;
-            font-size: 0.9rem;
+            margin-top: 2rem;
         }
         
         .back-to-top {
             position: fixed;
-            bottom: 20px;
-            left: 20px;
+            bottom: 30px;
+            left: 30px;
             background-color: var(--primary-blue);
             color: white;
-            width: 40px;
-            height: 40px;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             text-decoration: none;
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             box-shadow: var(--shadow);
             transition: background-color 0.3s;
             z-index: 99;
@@ -461,14 +440,13 @@
             background-color: rgba(0, 0, 0, 0.7);
             z-index: 1000;
             overflow-y: auto;
-            padding: 10px;
         }
         
         .modal-content {
             background-color: white;
-            margin: 1rem auto;
-            width: 95%;
-            max-width: 800px;
+            margin: 2rem auto;
+            width: 90%;
+            max-width: 1000px;
             border-radius: 8px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
             animation: modalFade 0.3s;
@@ -482,7 +460,7 @@
         .modal-header {
             background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
             color: white;
-            padding: 1.25rem;
+            padding: 1.5rem;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -491,25 +469,17 @@
         }
         
         .modal-logo {
-            width: 60px;
-            height: 60px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             background-color: white;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            font-size: 2rem;
             font-weight: bold;
             color: var(--primary-blue);
             background-size: cover;
-            flex-shrink: 0;
-        }
-        
-        .modal-header h2 {
-            font-size: 1.3rem;
-            margin: 0 10px;
-            text-align: center;
-            flex-grow: 1;
         }
         
         .close-modal {
@@ -518,29 +488,22 @@
             color: white;
             font-size: 1.5rem;
             cursor: pointer;
-            flex-shrink: 0;
         }
         
         .modal-body {
-            padding: 1.5rem;
+            padding: 2rem;
         }
         
         .team-details {
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        @media (min-width: 768px) {
-            .team-details {
-                grid-template-columns: 1fr 2fr;
-            }
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
         }
         
         .team-main-photo {
             width: 100%;
-            height: 180px;
+            height: 200px;
             background-color: #e9ecef;
             border-radius: 8px;
             background-size: cover;
@@ -548,53 +511,52 @@
         
         .team-info h3 {
             color: var(--primary-blue);
-            margin-bottom: 0.75rem;
-            font-size: 1.2rem;
+            margin-bottom: 1rem;
         }
         
         .team-stats {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 0.75rem;
-            margin-top: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
         }
         
         .stat-card {
             background-color: var(--light-bg);
-            padding: 0.75rem;
+            padding: 1rem;
             border-radius: 8px;
             text-align: center;
             color: white;
         }
         
         .stat-value {
-            font-size: 1.3rem;
+            font-size: 1.5rem;
             font-weight: bold;
             color: var(--accent-yellow);
         }
         
         .team-players {
-            margin-top: 1.5rem;
+            margin-top: 2rem;
         }
         
         .players-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-            gap: 0.75rem;
-            margin-top: 0.75rem;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
         }
         
         .player-card {
             background-color: #f8f9fa;
             border-radius: 8px;
-            padding: 0.75rem;
+            padding: 1rem;
             text-align: center;
             box-shadow: var(--shadow);
         }
         
         .player-photo {
-            width: 60px;
-            height: 60px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             background-color: #e9ecef;
             margin: 0 auto 0.5rem;
@@ -604,118 +566,58 @@
         .player-name {
             font-weight: bold;
             margin-bottom: 0.25rem;
-            font-size: 0.9rem;
         }
         
         .player-position {
             color: var(--dark-blue);
-            font-size: 0.8rem;
+            font-size: 0.9rem;
         }
         
         .player-number {
             background-color: var(--primary-blue);
             color: white;
-            width: 25px;
-            height: 25px;
+            width: 30px;
+            height: 30px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 0.5rem;
             font-weight: bold;
-            font-size: 0.8rem;
         }
         
-        /* تحسينات للهواتف الصغيرة جداً */
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 10px;
-            }
-            
-            header {
-                padding: 1rem 0;
-            }
-            
-            .logo {
-                width: 60px;
-                height: 60px;
-                font-size: 1.5rem;
-            }
-            
-            h1 {
-                font-size: 1.5rem;
-            }
-            
-            .subtitle {
-                font-size: 0.9rem;
-            }
-            
+        @media (max-width: 768px) {
             nav ul {
                 flex-direction: column;
                 align-items: center;
             }
             
             nav li {
-                margin: 2px 0;
-                width: 100%;
-                text-align: center;
+                margin: 5px 0;
             }
             
-            nav a {
-                padding: 8px;
+            h1 {
+                font-size: 2rem;
             }
             
-            section {
-                padding: 1.5rem 0;
-            }
-            
-            .section-title {
-                font-size: 1.3rem;
-                margin-bottom: 1rem;
-            }
-            
-            .teams-grid {
+            .tournament-structure, .groups-container, .teams-grid {
                 grid-template-columns: 1fr;
             }
             
-            .team-header h3 {
-                font-size: 1.1rem;
-            }
-            
-            .players-grid {
-                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-            }
-            
-            .modal-header {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .modal-header h2 {
-                margin: 10px 0;
-            }
-            
             .back-to-top {
-                bottom: 15px;
-                left: 15px;
-                width: 35px;
-                height: 35px;
-                font-size: 1rem;
+                bottom: 20px;
+                left: 20px;
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
             }
-        }
-        
-        @media (max-width: 360px) {
+            
+            .team-details {
+                grid-template-columns: 1fr;
+            }
+            
             .players-grid {
-                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-            }
-            
-            .player-card {
-                padding: 0.5rem;
-            }
-            
-            .player-photo {
-                width: 50px;
-                height: 50px;
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
             }
         }
     </style>
@@ -723,8 +625,8 @@
 <body>
     <header>
         <div class="container">
-            <div class="logo"><img src="HSC Logo 002.png" height="150" width="150" ></div>
-            <h1>بطولة مدرسة الحسين الملكي الكروية الأولى</h1>
+            <div class="logo"><img src="HSC Logo 002.png" height="200" width="200" ></div>
+            <h1>بطولة مدرسة الحسين الملكي الكروية</h1>
             <p class="subtitle">منافسة كروية تجمع بين أفضل الفرق المدرسية</p>
         </div>
     </header>
@@ -745,7 +647,7 @@
         <section id="about">
             <h2 class="section-title">عن البطولة</h2>
             <div class="about">
-                <p>بطولة مدرسة الحسين الملكي الكروية الأولى هي منافسة رياضية مميزة تجمع بين فرق كرة القدم المدرسية في إطار من المنافسة الشريفة والروح الرياضية العالية. تهدف البطولة إلى تنمية المهارات الكروية لدى الطلاب، وتعزيز قيم العمل الجماعي، واللياقة البدنية، والمنافسة الصحية. نحن نتطلع إلى عرض مواهب كروية رائعة ومباريات مثيرة خلال هذه البطولة.</p>
+                <p>بطولة مدرسة الحسين الملكية الكروية هي منافسة رياضية مميزة تجمع بين فرق كرة القدم المدرسية في إطار من المنافسة الشريفة والروح الرياضية العالية. تهدف البطولة إلى تنمية المهارات الكروية لدى الطلاب، وتعزيز قيم العمل الجماعي، واللياقة البدنية، والمنافسة الصحية. نحن نتطلع إلى عرض مواهب كروية رائعة ومباريات مثيرة خلال هذه البطولة.</p>
             </div>
         </section>
         
@@ -781,23 +683,23 @@
                 <!-- فريق الأسود -->
                 <div class="team-card" data-team="lions">
                     <div class="team-header">
-                        <div class="team-logo-large"><img src="HSC Logo 002.png" height="100" width="100" ></div>
-                        <h3>فريق البراعم الحسين أ</h3>
+                        <div class="team-logo-large"><img src="HSC Logo 001.png" height="150" width="150" ></div>
+                        <h3>فريق الأسود</h3>
                     </div>
                     <div class="team-body">
                         <div class="team-photo" style="background-image: url('9.jpg')"></div>
-                     <p> المدرب :  </p>
+                        <p>المدرب: أحمد غازي</p>
                     </div>
                 </div>
                 
                 <!-- فريق الصقور -->
                 <div class="team-card" data-team="falcons">
                     <div class="team-header">
-                        <div class="team-logo-large"><img src="pro.png" height="70" width="70" ></div>
-                        <h3>فريق برو</h3>
+                        <div class="team-logo-large" style="background-image: url('https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=🦅')"></div>
+                        <h3>فريق الصقور</h3>
                     </div>
                     <div class="team-body">
-                        <div class="team-photo" style="background-image: url('pro\ teame.jpg')"></div>
+                        <div class="team-photo" style="background-image: url('https://via.placeholder.com/250x150/628336/FFFFFF?text=فريق+الصقور')"></div>
                         <p>يتميز بالسرعة والمهارات الفردية العالية.</p>
                     </div>
                 </div>
@@ -805,11 +707,11 @@
                 <!-- فريق الفرسان -->
                 <div class="team-card" data-team="knights">
                     <div class="team-header">
-                        <div class="team-logo-large"><img src="star.png" height="70" width="70" ></div>
-                        <h3>فريق النجم الكبير</h3>
+                        <div class="team-logo-large" style="background-image: url('https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=♞')"></div>
+                        <h3>فريق الفرسان</h3>
                     </div>
                     <div class="team-body">
-                        <div class="team-photo" style="background-image: url('star\ teame.jpg')"></div>
+                        <div class="team-photo" style="background-image: url('https://via.placeholder.com/250x150/628336/FFFFFF?text=فريق+الفرسان')"></div>
                         <p>فريق تكتيكي يعتمد على التنظيم واللعب الجماعي.</p>
                     </div>
                 </div>
@@ -817,11 +719,11 @@
                 <!-- فريق البرق -->
                 <div class="team-card" data-team="lightning">
                     <div class="team-header">
-                        <div class="team-logo-large"></div>
-                        <h3>فريق أبطال بدر</h3>
+                        <div class="team-logo-large" style="background-image: url('https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=⚡')"></div>
+                        <h3>فريق البرق</h3>
                     </div>
                     <div class="team-body">
-                        <div class="team-photo" style="background-image: url('')"></div>
+                        <div class="team-photo" style="background-image: url('https://via.placeholder.com/250x150/628336/FFFFFF?text=فريق+البرق')"></div>
                         <p>يتميز بالهجمات المرتدة السريعة والضغط العالي.</p>
                     </div>
                 </div>
@@ -829,11 +731,11 @@
                 <!-- فريق النمور -->
                 <div class="team-card" data-team="tigers">
                     <div class="team-header">
-                        <div class="team-logo-large"><img src="HSC Logo 001.png" height="100" width="100" ></div>
-                        <h3>فريق براعم الحسين ب</h3>
+                        <div class="team-logo-large" style="background-image: url('https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=🐅')"></div>
+                        <h3>فريق النمور</h3>
                     </div>
                     <div class="team-body">
-                        <div class="team-photo" style="background-image: url('')"></div>
+                        <div class="team-photo" style="background-image: url('https://via.placeholder.com/250x150/628336/FFFFFF?text=فريق+النمور')"></div>
                         <p>فريق عدواني يتميز بالقوة البدنية والتصويبات القوية.</p>
                     </div>
                 </div>
@@ -841,11 +743,11 @@
                 <!-- فريق النسور -->
                 <div class="team-card" data-team="eagles">
                     <div class="team-header">
-                        <div class="team-logo-large"><img src="Tomore_logo.png" height="70" width="70" alt=""></div>
-                        <h3>فريق نجم الغد</h3>
+                        <div class="team-logo-large" style="background-image: url('https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=🦅')"></div>
+                        <h3>فريق النسور</h3>
                     </div>
                     <div class="team-body">
-                        <div class="team-photo" style="background-image: url('tomore\ teame.jpg')"></div>
+                        <div class="team-photo" style="background-image: url('https://via.placeholder.com/250x150/628336/FFFFFF?text=فريق+النسور')"></div>
                         <p>يتميز باللعب الجوي والخطط الدفاعية المتينة.</p>
                     </div>
                 </div>
@@ -853,11 +755,11 @@
                 <!-- فريق الأبطال -->
                 <div class="team-card" data-team="champions">
                     <div class="team-header">
-                        <div class="team-logo-large"><img src="high.png" height="70" width="70" alt=""></div>
-                     <h3> High LEVEL Club </h3>
+                        <div class="team-logo-large" style="background-image: url('https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=🏆')"></div>
+                        <h3>فريق الأبطال</h3>
                     </div>
                     <div class="team-body">
-                        <div class="team-photo" style="background-image: url('')"></div>
+                        <div class="team-photo" style="background-image: url('https://via.placeholder.com/250x150/628336/FFFFFF?text=فريق+الأبطال')"></div>
                         <p>فريق متوازن يجمع بين القوة الهجومية والدفاعية.</p>
                     </div>
                 </div>
@@ -865,11 +767,11 @@
                 <!-- فريق الأعاصير -->
                 <div class="team-card" data-team="hurricanes">
                     <div class="team-header">
-                        <div class="team-logo-large"></div>
-                        <h3>فريق غرناطه</h3>
+                        <div class="team-logo-large" style="background-image: url('https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=🌪️')"></div>
+                        <h3>فريق الأعاصير</h3>
                     </div>
                     <div class="team-body">
-                        <div class="team-photo" style="background-image: url('grnad7.jpg')"></div>
+                        <div class="team-photo" style="background-image: url('https://via.placeholder.com/250x150/628336/FFFFFF?text=فريق+الأعاصير')"></div>
                         <p>يتميز باللعب غير المتوقع والإبداع في الهجوم.</p>
                     </div>
                 </div>
@@ -897,95 +799,92 @@
         
         <section id="matches">
             <h2 class="section-title">جدول المباريات</h2>
-            <div class="matches-table-container">
-                <table class="matches-table">
-                    <thead>
-                        <tr>
-                            <th>المرحلة</th>
-                            <th>المباراة</th>
-                            <th>التاريخ</th>
-                            <th>الوقت</th>
-                            <th>الملعب</th>
-                            <th>النتيجة</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="match-stage">مرحلة المجموعات</td>
-                            <td>فريق براعم الحسين أ vs فريق برو</td>
-                            <td>2025-12-21</td>
-                            <td>1:30</td>
-                            <td>الملعب النادي الحسين</td>
-                            <td class="match-result">-</td>
-                        </tr>
-                        <tr>
-                            <td class="match-stage">مرحلة المجموعات</td>
-                            <td>فريق أبطال بدر vs 
-فريق النجم الكبير</td>
-                            <td>2025-11-21</td>
-                            <td>2:15</td>
-                            <td>الملعب الثاني</td>
-                            <td class="match-result">-</td>
-                        </tr>
-                        <tr>
-                            <td class="match-stage">مرحلة المجموعات</td>
-                            <td>النمور vs النسور</td>
-                            <td>2023-10-02</td>
-                            <td>16:00</td>
-                            <td>الملعب الرئيسي</td>
-                            <td class="match-result">3-2</td>
-                        </tr>
-                        <tr>
-                            <td class="match-stage">مرحلة المجموعات</td>
-                            <td>الأبطال vs الأعاصير</td>
-                            <td>2023-10-02</td>
-                            <td>18:00</td>
-                            <td>الملعب الثاني</td>
-                            <td class="match-result">1-1</td>
-                        </tr>
-                        <tr>
-                            <td class="match-stage">مرحلة المجموعات</td>
-                            <td>الأسود vs الفرسان</td>
-                            <td>2023-10-05</td>
-                            <td>16:00</td>
-                            <td>الملعب الرئيسي</td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td class="match-stage">مرحلة المجموعات</td>
-                            <td>الصقور vs البرق</td>
-                            <td>2023-10-05</td>
-                            <td>18:00</td>
-                            <td>الملعب الثاني</td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td class="match-stage">نصف النهائي</td>
-                            <td>أول المجموعة أ vs ثاني المجموعة ب</td>
-                            <td>2023-10-10</td>
-                            <td>16:00</td>
-                            <td>الملعب الرئيسي</td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td class="match-stage">نصف النهائي</td>
-                            <td>أول المجموعة ب vs ثاني المجموعة أ</td>
-                            <td>2023-10-10</td>
-                            <td>18:00</td>
-                            <td>الملعب الرئيسي</td>
-                            <td>-</td>
-                        </tr>
-                        <tr>
-                            <td class="match-stage">النهائي</td>
-                            <td>فائز نصف النهائي 1 vs فائز نصف النهائي 2</td>
-                            <td>2023-10-15</td>
-                            <td>18:00</td>
-                            <td>الملعب الرئيسي</td>
-                            <td>-</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            <table class="matches-table">
+                <thead>
+                    <tr>
+                        <th>المرحلة</th>
+                        <th>المباراة</th>
+                        <th>التاريخ</th>
+                        <th>الوقت</th>
+                        <th>الملعب</th>
+                        <th>النتيجة</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="match-stage">مرحلة المجموعات</td>
+                        <td>الأسود vs الصقور</td>
+                        <td>2023-10-01</td>
+                        <td>16:00</td>
+                        <td>الملعب الرئيسي</td>
+                        <td class="match-result">2-1</td>
+                    </tr>
+                    <tr>
+                        <td class="match-stage">مرحلة المجموعات</td>
+                        <td>الفرسان vs البرق</td>
+                        <td>2023-10-01</td>
+                        <td>18:00</td>
+                        <td>الملعب الثاني</td>
+                        <td class="match-result">0-0</td>
+                    </tr>
+                    <tr>
+                        <td class="match-stage">مرحلة المجموعات</td>
+                        <td>النمور vs النسور</td>
+                        <td>2023-10-02</td>
+                        <td>16:00</td>
+                        <td>الملعب الرئيسي</td>
+                        <td class="match-result">3-2</td>
+                    </tr>
+                    <tr>
+                        <td class="match-stage">مرحلة المجموعات</td>
+                        <td>الأبطال vs الأعاصير</td>
+                        <td>2023-10-02</td>
+                        <td>18:00</td>
+                        <td>الملعب الثاني</td>
+                        <td class="match-result">1-1</td>
+                    </tr>
+                    <tr>
+                        <td class="match-stage">مرحلة المجموعات</td>
+                        <td>الأسود vs الفرسان</td>
+                        <td>2023-10-05</td>
+                        <td>16:00</td>
+                        <td>الملعب الرئيسي</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td class="match-stage">مرحلة المجموعات</td>
+                        <td>الصقور vs البرق</td>
+                        <td>2023-10-05</td>
+                        <td>18:00</td>
+                        <td>الملعب الثاني</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td class="match-stage">نصف النهائي</td>
+                        <td>أول المجموعة أ vs ثاني المجموعة ب</td>
+                        <td>2023-10-10</td>
+                        <td>16:00</td>
+                        <td>الملعب الرئيسي</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td class="match-stage">نصف النهائي</td>
+                        <td>أول المجموعة ب vs ثاني المجموعة أ</td>
+                        <td>2023-10-10</td>
+                        <td>18:00</td>
+                        <td>الملعب الرئيسي</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td class="match-stage">النهائي</td>
+                        <td>فائز نصف النهائي 1 vs فائز نصف النهائي 2</td>
+                        <td>2023-10-15</td>
+                        <td>18:00</td>
+                        <td>الملعب الرئيسي</td>
+                        <td>-</td>
+                    </tr>
+                </tbody>
+            </table>
         </section>
     </main>
     
@@ -1040,21 +939,20 @@
     </footer>
 
     <script>
-        // نفس الكود السابق للجافاسكريبت
         document.addEventListener('DOMContentLoaded', function() {
             // بيانات الفرق مع 12 لاعب لكل فريق
-             const teamsData = {
+            const teamsData = {
                 lions: {
-                    name: "فريق براعم الحسين أ ",
-                    logo: "HSC Logo 002.png",
+                    name: "فريق الأسود",
+                    logo: "HSC Logo 001.png",
                     photo: "9.jpg",
                     description: "فريق قوي يتميز بالهجوم المنظم والدفاع الصلب. تأسس الفريق عام 2015 ويحمل لقب البطولة مرتين. يعتمد الفريق على اللعب الجماعي والتنظيم التكتيكي المحكم.",
-                    matches: 0,
-                    wins: 0,
-                    goals: 0,
+                    matches: 12,
+                    wins: 8,
+                    goals: 24,
                     points: 0,
                     players: [
-                        {name: "أحمد القائد", position: "حارس مرمى", number: 1, photo: ".png"},
+                        {name: "أحمد القائد", position: "حارس مرمى", number: 1, photo: "mhnk.png"},
                         {name: "محمد الهاشمي", position: "مدافع", number: 2, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=2"},
                         {name: "خالد الجبوري", position: "وسط", number: 3, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=3"},
                         {name: "علي العبادي", position: "مهاجم", number: 4, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=4"},
@@ -1069,13 +967,13 @@
                     ]
                 },
                 falcons: {
-                    name: "فريق برو",
-                    logo: "pro.jpg",
-                    photo: "pro teame.jpg",
+                    name: "فريق الصقور",
+                    logo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=🦅",
+                    photo: "https://via.placeholder.com/800x400/628336/FFFFFF?text=فريق+الصقور",
                     description: "يتميز بالسرعة والمهارات الفردية العالية. يعتمد على الهجمات المرتدة والضغط العالي. الفريق لديه مجموعة من اللاعبين الموهوبين تقنياً.",
-                    matches: 0,
-                    wins: 0,
-                    goals: 0,
+                    matches: 10,
+                    wins: 7,
+                    goals: 21,
                     points: 0,
                     players: [
                         {name: "يوسف السريع", position: "وسط", number: 1, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=1"},
@@ -1093,14 +991,14 @@
                     ]
                 },
                 knights: {
-                    name: "فريق النجم الكبير",
-                    logo: "star.png",
-                    photo: "star teame.jpg",
+                    name: "فريق الفرسان",
+                    logo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=♞",
+                    photo: "https://via.placeholder.com/800x400/628336/FFFFFF?text=فريق+الفرسان",
                     description: "فريق تكتيكي يعتمد على التنظيم واللعب الجماعي. يشتهر بالانضباط التكتيكي العالي والالتزام بالتعليمات الفنية.",
-                    matches: 0,
-                    wins: 0,
-                    goals: 0,
-                    points: 0,
+                    matches: 11,
+                    wins: 6,
+                    goals: 18,
+                    points: 20,
                     players: [
                         {name: "سامي الفارس", position: "قائد ووسط", number: 1, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=1"},
                         {name: "حسان الشجاع", position: "وسط", number: 2, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=2"},
@@ -1117,9 +1015,9 @@
                     ]
                 },
                 lightning: {
-                    name: "فريق أبطال بدر ",
-                    logo: "",
-                    photo: "",
+                    name: "فريق البرق",
+                    logo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=⚡",
+                    photo: "https://via.placeholder.com/800x400/628336/FFFFFF?text=فريق+البرق",
                     description: "يتميز بالهجمات المرتدة السريعة والضغط العالي. فريق شاب وطموح يتمتع بطاقة عالية وروح تنافسية قوية.",
                     matches: 9,
                     wins: 5,
@@ -1141,9 +1039,9 @@
                     ]
                 },
                 tigers: {
-                    name: "فريق براعم الحسين ب",
-                    logo: "HSC Logo 001.png",
-                    photo: "",
+                    name: "فريق النمور",
+                    logo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=🐅",
+                    photo: "https://via.placeholder.com/800x400/628336/FFFFFF?text=فريق+النمور",
                     description: "فريق عدواني يتميز بالقوة البدنية والتصويبات القوية. لا يستسلم أبداً ويتمتع بروح قتالية عالية في جميع المباريات.",
                     matches: 13,
                     wins: 9,
@@ -1165,14 +1063,14 @@
                     ]
                 },
                 eagles: {
-                    name: "فريق نجم الغد",
-                    logo: "Tomore_logo.png",
-                    photo: "tomore teame.jpg",
+                    name: "فريق النسور",
+                    logo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=🦅",
+                    photo: "https://via.placeholder.com/800x400/628336/FFFFFF?text=فريق+النسور",
                     description: "يتميز باللعب الجوي والخطط الدفاعية المتينة. فريق منظم وذو خبرة، يعتمد على التمريرات الطويلة واللعب الهوائي.",
-                    matches: 0,
-                    wins: 0,
-                    goals: 0,
-                    points: 0,
+                    matches: 12,
+                    wins: 7,
+                    goals: 19,
+                    points: 23,
                     players: [
                         {name: "طارق النسر", position: "قائد", number: 1, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=1"},
                         {name: "باسم العالي", position: "وسط", number: 2, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=2"},
@@ -1189,8 +1087,8 @@
                     ]
                 },
                 champions: {
-                    name: "High Level",
-                    logo: "high.png",
+                    name: "فريق الأبطال",
+                    logo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=🏆",
                     photo: "https://via.placeholder.com/800x400/628336/FFFFFF?text=فريق+الأبطال",
                     description: "فريق متوازن يجمع بين القوة الهجومية والدفاعية. حامل لقب البطولة الموسم الماضي ويتمتع بخبرة كبيرة في المنافسات.",
                     matches: 14,
@@ -1213,14 +1111,14 @@
                     ]
                 },
                 hurricanes: {
-                    name: "فريق غرناطه",
+                    name: "فريق الأعاصير",
                     logo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=🌪️",
-                    photo: "grnad7.jpg",
+                    photo: "https://via.placeholder.com/800x400/628336/FFFFFF?text=فريق+الأعاصير",
                     description: "يتميز باللعب غير المتوقع والإبداع في الهجوم. فريق مثير ومفاجئ، يصعب التنبؤ بخطته الهجومية مما يجعله منافساً صعباً.",
-                    matches: 0,
-                    wins: 0,
-                    goals: 0,
-                    points: 0,
+                    matches: 11,
+                    wins: 6,
+                    goals: 22,
+                    points: 19,
                     players: [
                         {name: "عاصف الإعصار", position: "قائد", number: 1, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=1"},
                         {name: "زعزع العاصفة", position: "وسط", number: 2, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=2"},
