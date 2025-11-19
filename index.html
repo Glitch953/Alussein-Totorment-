@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بطولةالحسين الكروية الأولى</title>
+    <title>بطولة الحسين الكروية الأولى</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -16,6 +16,7 @@
             --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             --success-green: #28a745;
             --error-red: #dc3545;
+            --info-blue: #17a2b8;
         }
         
         * {
@@ -238,7 +239,12 @@
             font-size: 0.9rem;
         }
         
-        .team-points {
+        .team-stats {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .team-points, .team-goals-for, .team-goals-against, .team-goals-diff {
             background-color: var(--dark-blue);
             color: white;
             padding: 3px 6px;
@@ -246,6 +252,20 @@
             font-weight: bold;
             font-size: 0.8rem;
             flex-shrink: 0;
+            min-width: 40px;
+            text-align: center;
+        }
+        
+        .team-goals-for {
+            background-color: var(--success-green);
+        }
+        
+        .team-goals-against {
+            background-color: var(--error-red);
+        }
+        
+        .team-goals-diff {
+            background-color: var(--info-blue);
         }
         
         .tournament-bracket {
@@ -846,7 +866,7 @@
                     </div>
                     <div class="team-body">
                         <div class="team-photo" style="background-image: url('tomore\ teame.jpg')"></div>
-                        <p>المدرب : محمد عبابنة </p>
+                        <p>المدرب : أكرم الجذي </p>
                     </div>
                 </div>
                 
@@ -1088,32 +1108,32 @@
     </footer>
 
     <script>
-        // نفس الكود السابق للجافاسكريبت
         document.addEventListener('DOMContentLoaded', function() {
             // بيانات الفرق مع 12 لاعب لكل فريق
-             const teamsData = {
+            const teamsData = {
                 lions: {
                     name: "فريق براعم الحسين أ ",
                     logo: "HSC Logo 002.png",
-                    photo: "pra3b\ a.jpg",
+                    photo: "pra3b a.jpg",
                     description:"",
                     matches: 0,
                     wins: 0,
                     goals: 0,
                     points: 0,
+                    goalsFor: 0,  // له - الأهداف المسجلة
+                    goalsAgainst: 0,  // عليه - الأهداف المستلمة
                     players: [
-                         {name: "ديار الكردي ", position: "", number: 1, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=1"},
-                        {name: " ", position: "", number: 2, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=2"},
-                        {name: "", position: "", number: 3, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=3"},
-                        {name: "", position: "", number: 4, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=4"},
-                        {name: "", position: '', number: 5, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=5"},
-                        {name:"", position: "", number: 6, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=6"},
-                        {name: "", position:"", number: 7, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=7"},
-                        {name: "", position:"", number: 8, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=8"},
-                        {name: "", position:"", number: 9, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=9"},
-                        {name: "", position: "", number: 10, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=10"},
-                        {name: "", position:"", number: 11, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=11"},
-                        {name: "", position: "", number: 12, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=12"}
+                         {name: "شلول", position: "", number: 1, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=1"},
+                        {name: "الزعبي", position: "", number: 2, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=2"},
+                        {name: "يوسف الرفاعي", position: "", number: 3, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=3"},
+                        {name: "بطيحه", position: "", number: 4, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=4"},
+                        {name: "محمد نمراوي", position: '', number: 5, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=5"},
+                        {name:"حموده حتامله", position: "", number: 6, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=6"},
+                        {name: "جود الخطيب", position:"", number: 7, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=7"},
+                        {name: "محمد السخني", position:"", number: 8, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=8"},
+                        {name: "عبدالرحمن حتامله ", position:"", number: 9, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=9"},
+                        {name: "البدارنه", position: "", number: 10, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=10"},
+
                     ]
                 },
                 falcons: {
@@ -1125,6 +1145,8 @@
                     wins: 0,
                     goals: 0,
                     points: 0,
+                    goalsFor: 0,
+                    goalsAgainst: 0,
                     players: [
                        {name: "أحمد سيلاوي ", position: "", number: 1, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=1"},
                         {name: "صالح الكوفحي", position: "", number: 2, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=2"},
@@ -1148,8 +1170,10 @@
                     wins: 0,
                     goals: 0,
                     points: 0,
+                    goalsFor: 0,
+                    goalsAgainst: 0,
                     players: [
-                         {name: "ديار الكردي ", position: "", number: 1, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=1"},
+                         {name: " ", position: "", number: 1, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=1"},
                         {name: " ", position: "", number: 2, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=2"},
                         {name: "", position: "", number: 3, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=3"},
                         {name: "", position: "", number: 4, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=4"},
@@ -1172,6 +1196,8 @@
                     wins: 0,
                     goals: 0,
                     points: 0,
+                    goalsFor: 0,
+                    goalsAgainst: 0,
                     players: [
                          {name: "احمد محمد فلاح عنبوسي", position: "", number: 1, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=1"},
                         {name: "جواد حسين حسن شناعه ", position: "", number: 2, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=2"},
@@ -1196,16 +1222,18 @@
                     wins: 0,
                     goals: 0,
                     points: 0,
+                    goalsFor: 0,
+                    goalsAgainst: 0,
                     players: [
-                         {name: "ديار الكردي ", position: "", number: 1, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=1"},
-                        {name: " ", position: "", number: 2, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=2"},
-                        {name: "", position: "", number: 3, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=3"},
-                        {name: "", position: "", number: 4, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=4"},
-                        {name: "", position: '', number: 5, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=5"},
-                        {name:"", position: "", number: 6, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=6"},
-                        {name: "", position:"", number: 7, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=7"},
-                        {name: "", position:"", number: 8, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=8"},
-                        {name: "", position:"", number: 9, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=9"},
+                         {name: "الرفاعي", position: "", number: 1, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=1"},
+                        {name: "يحيى", position: "", number: 2, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=2"},
+                        {name: "امير لواحمه", position: "", number: 3, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=3"},
+                        {name: "جواد فتح الله", position: "", number: 4, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=4"},
+                        {name: "فارس", position: '', number: 5, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=5"},
+                        {name:"نورس", position: "", number: 6, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=6"},
+                        {name: "الرشدان", position:"", number: 7, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=7"},
+                        {name: "كرم الحوراني ", position:"", number: 8, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=8"},
+                        {name: "فارس الحمد", position:"", number: 9, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=9"},
                         {name: "", position: "", number: 10, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=10"},
                         {name: "", position:"", number: 11, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=11"},
                         {name: "", position: "", number: 12, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=12"}
@@ -1220,6 +1248,8 @@
                     wins: 0,
                     goals: 0,
                     points: 0,
+                    goalsFor: 0,
+                    goalsAgainst: 0,
                     players: [
                         {name: "الياس ملالحه ", position: "", number: 1, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=1"},
                         {name: " ورد طشطوش ", position: "", number: 2, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=2"},
@@ -1238,12 +1268,14 @@
                 champions: {
                     name: "High Level",
                     logo: "high.png",
-                    photo: "high\ level\ teame.jpg",
+                    photo: "high level teame.jpg",
                     description: "",
                     matches: 0,
                     wins: 0,
                     goals: 0,
                     points: 0,
+                    goalsFor: 0,
+                    goalsAgainst: 0,
                     players: [
                          {name: "", position: "", number: 1, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=1"},
                         {name: " ", position: "", number: 2, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=2"},
@@ -1268,38 +1300,40 @@
                     wins: 0,
                     goals: 0,
                     points: 0,
+                    goalsFor: 0,
+                    goalsAgainst: 0,
                     players: [
                         {name: "ديار الكردي ", position: "", number: 1, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=1"},
                         {name: " امين الصابوني  ", position: "", number: 2, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=2"},
                         {name: "طاهر عبيدات", position: "", number: 3, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=3"},
                         {name: "محمد صلاح ", position: "", number: 4, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=4"},
                         {name: "خالد الشوحة", position: '', number: 5, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=5"},
-                        {name:"خالد الشوحة", position: "", number: 6, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=6"},
+                        {name:"يامن كليب", position: "", number: 6, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=6"},
                         {name: "محمد درادكة", position:"", number: 7, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=7"},
                         {name: "عامر الكردي", position:"", number: 8, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=8"},
                         {name: "احمد مقدادي", position:"", number: 9, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=9"},
                         {name: "عمر قوقزة", position: "", number: 10, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=10"},
                         {name: "ابراهيم علاونة", position:"", number: 11, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=11"},
                         {name: "محمد الصابوني", position: "", number: 12, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=12"},
-                        {name: "اسامة الصابوني", position: "", number: 13, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=12"}
+                        {name: "اسامة الصابوني", position: "", number: 13, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=12"}
 
                     ]
                 }
             };
 
-            // تعريف المجموعات
+            // تعريف المجموعات مع بيانات الأهداف
             const groups = {
                 groupA: [
-                    {id: 'lions', points: 0},
-                    {id: 'falcons', points: 0},
-                    {id: 'knights', points: 0},
-                    {id: 'lightning', points: 0}
+                    {id: 'lions', points: 0, goalsFor: 0, goalsAgainst: 0},
+                    {id: 'falcons', points: 0, goalsFor: 0, goalsAgainst: 0},
+                    {id: 'knights', points: 0, goalsFor: 0, goalsAgainst: 0},
+                    {id: 'lightning', points: 0, goalsFor: 0, goalsAgainst: 0}
                 ],
                 groupB: [
-                    {id: 'tigers', points: 0},
-                    {id: 'champions', points: 0},
-                    {id: 'eagles', points: 0},
-                    {id: 'hurricanes', points: 0}
+                    {id: 'tigers', points: 0, goalsFor: 0, goalsAgainst: 0},
+                    {id: 'champions', points: 0, goalsFor: 0, goalsAgainst: 0},
+                    {id: 'eagles', points: 0, goalsFor: 0, goalsAgainst: 0},
+                    {id: 'hurricanes', points: 0, goalsFor: 0, goalsAgainst: 0}
                 ]
             };
 
@@ -1315,13 +1349,21 @@
                 // عرض المجموعة أ
                 groups.groupA.forEach((team, index) => {
                     const teamData = teamsData[team.id];
+                    const goalsDiff = team.goalsFor - team.goalsAgainst;
+                    const goalsDiffText = goalsDiff > 0 ? `+${goalsDiff}` : goalsDiff;
+                    
                     const teamElement = document.createElement('div');
                     teamElement.className = 'team';
                     teamElement.innerHTML = `
                         <div class="team-position">${index + 1}</div>
                         <div class="team-logo" style="background-image: url('${teamData.logo}')"></div>
                         <div class="team-name">${teamData.name}</div>
-                        <div class="team-points">${team.points} نقاط</div>
+                        <div class="team-stats">
+                            <div class="team-points">${team.points} نقاط</div>
+                            <div class="team-goals-for">${team.goalsFor} له</div>
+                            <div class="team-goals-against">${team.goalsAgainst} عليه</div>
+                            <div class="team-goals-diff">${goalsDiffText} الفارق</div>
+                        </div>
                     `;
                     groupAContainer.appendChild(teamElement);
                 });
@@ -1329,13 +1371,21 @@
                 // عرض المجموعة ب
                 groups.groupB.forEach((team, index) => {
                     const teamData = teamsData[team.id];
+                    const goalsDiff = team.goalsFor - team.goalsAgainst;
+                    const goalsDiffText = goalsDiff > 0 ? `+${goalsDiff}` : goalsDiff;
+                    
                     const teamElement = document.createElement('div');
                     teamElement.className = 'team';
                     teamElement.innerHTML = `
                         <div class="team-position">${index + 1}</div>
                         <div class="team-logo" style="background-image: url('${teamData.logo}')"></div>
                         <div class="team-name">${teamData.name}</div>
-                        <div class="team-points">${team.points} نقاط</div>
+                        <div class="team-stats">
+                            <div class="team-points">${team.points} نقاط</div>
+                            <div class="team-goals-for">${team.goalsFor} له</div>
+                            <div class="team-goals-against">${team.goalsAgainst} عليه</div>
+                            <div class="team-goals-diff">${goalsDiffText} الفارق</div>
+                        </div>
                     `;
                     groupBContainer.appendChild(teamElement);
                 });
