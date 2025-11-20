@@ -5,13 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>بطولة الحسين الكروية الأولى</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- إضافة Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
-    
     <style>
-        /* جميع الأنماط السابقة تبقى كما هي */
         :root {
             --primary-blue: #bbae1a;
             --accent-yellow: #FFD700;
@@ -1781,22 +1775,6 @@
     </footer>
 
     <script>
-        // تهيئة Firebase
-        const firebaseConfig = {
-            // أضف معلومات التكوين الخاصة بـ Firebase هنا
-            apiKey: "your-api-key",
-            authDomain: "your-project-id.firebaseapp.com",
-            databaseURL: "https://your-project-id-default-rtdb.firebaseio.com",
-            projectId: "your-project-id",
-            storageBucket: "your-project-id.appspot.com",
-            messagingSenderId: "your-sender-id",
-            appId: "your-app-id"
-        };
-
-        // تهيئة Firebase
-        firebase.initializeApp(firebaseConfig);
-        const database = firebase.database();
-
         document.addEventListener('DOMContentLoaded', function() {
             // بيانات الفرق مع 12 لاعب لكل فريق
             const teamsData = {
@@ -2203,9 +2181,16 @@
                 }
             });
 
-            // لوحة النتائج والوقت مع Firebase
+            // لوحة النتائج والوقت
             let timerInterval;
+            let seconds = 0;
             let isTimerRunning = false;
+            let currentPeriod = 1; // 1 = الشوط الأول, 2 = الشوط الثاني, 3 = الوقت الإضافي
+            let team1Score = 0;
+            let team2Score = 0;
+            let firstHalfScore = "0 - 0";
+            let secondHalfScore = "0 - 0";
+            let extraTimeScore = "0 - 0";
             let isAdmin = false;
 
             const matchTimer = document.getElementById('match-timer');
@@ -2270,22 +2255,11 @@
             const nextHalfBtn = document.getElementById('next-half');
             const adminLogoutBtn = document.getElementById('admin-logout');
 
-            // الاستماع للتغييرات في قاعدة البيانات
-            database.ref('scoreboard').on('value', (snapshot) => {
-                const data = snapshot.val();
-                if (data) {
-                    updateDisplayFromFirebase(data);
-                }
-            });
-
             // بدء المباراة
             startTimerBtn.addEventListener('click', function() {
                 if (!isTimerRunning && isAdmin) {
                     isTimerRunning = true;
-                    database.ref('scoreboard').update({
-                        isTimerRunning: true,
-                        lastUpdate: Date.now()
-                    });
+                    timerInterval = setInterval(updateTimer, 1000);
                     startTimerBtn.textContent = 'استئناف المباراة';
                 }
             });
@@ -2295,10 +2269,6 @@
                 if (isTimerRunning && isAdmin) {
                     isTimerRunning = false;
                     clearInterval(timerInterval);
-                    database.ref('scoreboard').update({
-                        isTimerRunning: false,
-                        lastUpdate: Date.now()
-                    });
                     startTimerBtn.textContent = 'بدء المباراة';
                 }
             });
@@ -2308,19 +2278,15 @@
                 if (isAdmin) {
                     isTimerRunning = false;
                     clearInterval(timerInterval);
+                    seconds = 0;
+                    team1Score = 0;
+                    team2Score = 0;
+                    currentPeriod = 1;
+                    firstHalfScore = "0 - 0";
+                    secondHalfScore = "0 - 0";
+                    extraTimeScore = "0 - 0";
                     
-                    database.ref('scoreboard').set({
-                        seconds: 0,
-                        team1Score: 0,
-                        team2Score: 0,
-                        currentPeriod: 1,
-                        firstHalfScore: "0 - 0",
-                        secondHalfScore: "0 - 0",
-                        extraTimeScore: "0 - 0",
-                        isTimerRunning: false,
-                        lastUpdate: Date.now()
-                    });
-                    
+                    updateDisplay();
                     startTimerBtn.textContent = 'بدء المباراة';
                 }
             });
@@ -2328,51 +2294,37 @@
             // هدف للفريق 1
             goalTeam1Btn.addEventListener('click', function() {
                 if (isAdmin) {
-                    database.ref('scoreboard').transaction((currentData) => {
-                        if (currentData) {
-                            currentData.team1Score = (currentData.team1Score || 0) + 1;
-                            currentData.lastUpdate = Date.now();
-                        }
-                        return currentData;
-                    });
+                    team1Score++;
+                    updateScores();
                 }
             });
 
             // هدف للفريق 2
             goalTeam2Btn.addEventListener('click', function() {
                 if (isAdmin) {
-                    database.ref('scoreboard').transaction((currentData) => {
-                        if (currentData) {
-                            currentData.team2Score = (currentData.team2Score || 0) + 1;
-                            currentData.lastUpdate = Date.now();
-                        }
-                        return currentData;
-                    });
+                    team2Score++;
+                    updateScores();
                 }
             });
 
             // الانتقال للشوط التالي
             nextHalfBtn.addEventListener('click', function() {
                 if (isAdmin) {
-                    database.ref('scoreboard').transaction((currentData) => {
-                        if (currentData) {
-                            if (currentData.currentPeriod === 1) {
-                                currentData.currentPeriod = 2;
-                                currentData.firstHalfScore = `${currentData.team1Score || 0} - ${currentData.team2Score || 0}`;
-                                currentData.team1Score = 0;
-                                currentData.team2Score = 0;
-                                currentData.seconds = 0;
-                            } else if (currentData.currentPeriod === 2) {
-                                currentData.currentPeriod = 3;
-                                currentData.secondHalfScore = `${currentData.team1Score || 0} - ${currentData.team2Score || 0}`;
-                                currentData.team1Score = 0;
-                                currentData.team2Score = 0;
-                                currentData.seconds = 0;
-                            }
-                            currentData.lastUpdate = Date.now();
-                        }
-                        return currentData;
-                    });
+                    if (currentPeriod === 1) {
+                        currentPeriod = 2;
+                        firstHalfScore = `${team1Score} - ${team2Score}`;
+                        team1Score = 0;
+                        team2Score = 0;
+                        seconds = 0;
+                    } else if (currentPeriod === 2) {
+                        currentPeriod = 3;
+                        secondHalfScore = `${team1Score} - ${team2Score}`;
+                        team1Score = 0;
+                        team2Score = 0;
+                        seconds = 0;
+                    }
+                    
+                    updateDisplay();
                 }
             });
 
@@ -2383,14 +2335,18 @@
                 scoreboardControls.style.display = 'block';
             });
 
-            // تحديث العرض من بيانات Firebase
-            function updateDisplayFromFirebase(data) {
-                const seconds = data.seconds || 0;
+            // تحديث العداد
+            function updateTimer() {
+                seconds++;
+                updateDisplay();
+            }
+
+            // تحديث العرض
+            function updateDisplay() {
                 const minutes = Math.floor(seconds / 60);
                 const remainingSeconds = seconds % 60;
                 matchTimer.textContent = `${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
                 
-                const currentPeriod = data.currentPeriod || 1;
                 if (currentPeriod === 1) {
                     matchPeriod.textContent = 'الشوط الأول';
                 } else if (currentPeriod === 2) {
@@ -2399,36 +2355,26 @@
                     matchPeriod.textContent = 'الوقت الإضافي';
                 }
                 
-                team1ScoreElement.textContent = data.team1Score || 0;
-                team2ScoreElement.textContent = data.team2Score || 0;
-                firstHalfScoreElement.textContent = data.firstHalfScore || "0 - 0";
-                secondHalfScoreElement.textContent = data.secondHalfScore || "0 - 0";
-                extraTimeScoreElement.textContent = data.extraTimeScore || "0 - 0";
+                team1ScoreElement.textContent = team1Score;
+                team2ScoreElement.textContent = team2Score;
+                firstHalfScoreElement.textContent = firstHalfScore;
+                secondHalfScoreElement.textContent = secondHalfScore;
+                extraTimeScoreElement.textContent = extraTimeScore;
+            }
+
+            // تحديث النتائج
+            function updateScores() {
+                team1ScoreElement.textContent = team1Score;
+                team2ScoreElement.textContent = team2Score;
                 
-                isTimerRunning = data.isTimerRunning || false;
-                if (isTimerRunning) {
-                    startTimerBtn.textContent = 'استئناف المباراة';
-                } else {
-                    startTimerBtn.textContent = 'بدء المباراة';
+                if (currentPeriod === 3) {
+                    extraTimeScore = `${team1Score} - ${team2Score}`;
+                    extraTimeScoreElement.textContent = extraTimeScore;
                 }
             }
 
-            // تهيئة البيانات الأولية إذا لم تكن موجودة
-            database.ref('scoreboard').once('value').then((snapshot) => {
-                if (!snapshot.exists()) {
-                    database.ref('scoreboard').set({
-                        seconds: 0,
-                        team1Score: 0,
-                        team2Score: 0,
-                        currentPeriod: 1,
-                        firstHalfScore: "0 - 0",
-                        secondHalfScore: "0 - 0",
-                        extraTimeScore: "0 - 0",
-                        isTimerRunning: false,
-                        lastUpdate: Date.now()
-                    });
-                }
-            });
+            // تهيئة العرض الأولي
+            updateDisplay();
         });
     </script>
 </body>
