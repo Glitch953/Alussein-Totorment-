@@ -437,6 +437,194 @@
             color: var(--dark-blue);
         }
         
+        /* قسم تسجيلات المباريات */
+        .recordings-section {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            margin-bottom: 1.5rem;
+        }
+        
+        .recordings-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .recording-card {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+        
+        .recording-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .recording-video {
+            width: 100%;
+            height: 200px;
+            background-color: #000;
+            position: relative;
+        }
+        
+        .recording-video video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .recording-info {
+            padding: 1rem;
+        }
+        
+        .recording-title {
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .recording-details {
+            color: var(--text-dark);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .recording-result {
+            font-weight: bold;
+            color: var(--dark-blue);
+            margin-bottom: 0.5rem;
+        }
+        
+        .recording-date {
+            color: #6c757d;
+            font-size: 0.8rem;
+        }
+        
+        /* أنماط جديدة لقائمة الهدافين */
+        .top-scorers-section {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            margin-bottom: 1.5rem;
+        }
+        
+        .scorers-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .scorer-card {
+            display: flex;
+            align-items: center;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 1rem;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+        }
+        
+        .scorer-card:hover {
+            transform: translateY(-3px);
+        }
+        
+        .scorer-position {
+            width: 35px;
+            height: 35px;
+            background-color: var(--primary-blue);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-left: 1rem;
+            flex-shrink: 0;
+        }
+        
+        .scorer-photo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #e9ecef;
+            margin-left: 1rem;
+            background-size: cover;
+            flex-shrink: 0;
+        }
+        
+        .scorer-info {
+            flex-grow: 1;
+        }
+        
+        .scorer-name {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            margin-bottom: 0.25rem;
+        }
+        
+        .scorer-team {
+            color: var(--dark-blue);
+            font-size: 0.9rem;
+            margin-bottom: 0.25rem;
+        }
+        
+        .scorer-goals {
+            display: flex;
+            align-items: center;
+            color: var(--success-green);
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        
+        .scorer-goals i {
+            margin-left: 0.25rem;
+        }
+        
+        .scorer-stats {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: var(--accent-yellow);
+            color: var(--text-dark);
+            padding: 0.5rem;
+            border-radius: 6px;
+            min-width: 80px;
+        }
+        
+        .scorer-goals-count {
+            font-size: 1.5rem;
+            font-weight: bold;
+            line-height: 1;
+        }
+        
+        .scorer-goals-label {
+            font-size: 0.8rem;
+        }
+        
+        /* أنماط للميداليات للمراكز الأولى */
+        .scorer-position.gold {
+            background-color: #FFD700;
+            color: var(--text-dark);
+        }
+        
+        .scorer-position.silver {
+            background-color: #C0C0C0;
+            color: var(--text-dark);
+        }
+        
+        .scorer-position.bronze {
+            background-color: #CD7F32;
+            color: white;
+        }
+        
         footer {
             background-color: var(--dark-blue);
             color: white;
@@ -1015,6 +1203,41 @@
             .sponsor-logo {
                 width: 150px;
             }
+            
+            /* تحسينات لتسجيلات المباريات للهواتف */
+            .recordings-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .recording-video {
+                height: 180px;
+            }
+            
+            /* تحسينات لقائمة الهدافين للهواتف */
+            .scorer-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 1.25rem;
+            }
+            
+            .scorer-position {
+                margin: 0 auto 0.75rem;
+            }
+            
+            .scorer-photo {
+                margin: 0 auto 0.75rem;
+            }
+            
+            .scorer-info {
+                margin-bottom: 0.75rem;
+            }
+            
+            .scorer-stats {
+                flex-direction: row;
+                gap: 0.5rem;
+                width: 100%;
+                justify-content: center;
+            }
         }
         
         @media (max-width: 360px) {
@@ -1050,6 +1273,8 @@
                 <li><a href="#teams">الفرق المشاركة</a></li>
                 <li><a href="#groups">المجموعات</a></li>
                 <li><a href="#matches">جدول المباريات</a></li>
+                <li><a href="#scorers">الهدافين</a></li>
+                <li><a href="#recordings">تسجيلات المباريات</a></li>
                 <li><a href="#" id="broadcast-link">البث المباشر</a></li>
                 <li><a href="#sponsor">الراعي الرسمي</a></li>
                 <li><a href="#webfinity">Webfinity.team</a></li>
@@ -1101,7 +1326,7 @@
                         <h3>فريق البراعم الحسين أ</h3>
                     </div>
                     <div class="team-body">
-                        <div class="team-photo" style="background-image: url('freq\ a\ .jpg')"></div>
+                        <div class="team-photo" style="background-image: url('freq a .jpg')"></div>
                      <p> المدرب : احمد غازي </p>
                     </div>
                 </div>
@@ -1149,7 +1374,7 @@
                         <h3>فريق براعم الحسين ب</h3>
                     </div>
                     <div class="team-body">
-                        <div class="team-photo" style="background-image: url('freq\ b.jpg')"></div>
+                        <div class="team-photo" style="background-image: url('freq b.jpg')"></div>
                         <p>المدرب : احمد غازي </p>
                     </div>
                 </div>
@@ -1264,7 +1489,7 @@
                             <td>2025-11-22</td>
                             <td>2:00</td>
                             <td>ملعب نادي الحسين</td>
-                            <td>-</td>
+                            <td>2-0</td>
                         </tr>
                         
                         <tr>
@@ -1349,6 +1574,88 @@
                         </tr>
                     </tbody>
                 </table>
+            </div>
+        </section>
+        
+        <!-- قسم الهدافين الجديد -->
+        <section id="scorers">
+            <h2 class="section-title">قائمة الهدافين</h2>
+            <div class="top-scorers-section">
+                <div class="scorers-container" id="scorersList">
+                    <!-- سيتم ملؤها بالجافاسكريبت -->
+                </div>
+            </div>
+        </section>
+        
+        <!-- قسم تسجيلات المباريات -->
+        <section id="recordings">
+            <h2 class="section-title">تسجيلات المباريات</h2>
+            <div class="recordings-section">
+                <div class="recordings-container">
+                    <!-- تسجيل المباراة الأولى -->
+                    <div class="recording-card">
+                        <div class="recording-video">
+                            <video controls poster="match1-poster.jpg">
+                                <source src="match1.mp4" type="video/mp4">
+                                متصفحك لا يدعم تشغيل الفيديو.
+                            </video>
+                        </div>
+                        <div class="recording-info">
+                            <h3 class="recording-title">براعم الحسين أ vs برو</h3>
+                            <p class="recording-details">مرحلة المجموعات - المجموعة أ</p>
+                            <p class="recording-result">النتيجة: 8 - 0</p>
+                            <p class="recording-date">21 نوفمبر 2025</p>
+                        </div>
+                    </div>
+                    
+                    <!-- تسجيل المباراة الثانية -->
+                    <div class="recording-card">
+                        <div class="recording-video">
+                            <video controls poster="match2-poster.jpg">
+                                <source src="match2.mp4" type="video/mp4">
+                                متصفحك لا يدعم تشغيل الفيديو.
+                            </video>
+                        </div>
+                        <div class="recording-info">
+                            <h3 class="recording-title">أبطال بدر vs النجم الكبير</h3>
+                            <p class="recording-details">مرحلة المجموعات - المجموعة أ</p>
+                            <p class="recording-result">النتيجة: 1 - 0</p>
+                            <p class="recording-date">21 نوفمبر 2025</p>
+                        </div>
+                    </div>
+                    
+                    <!-- تسجيل المباراة الثالثة -->
+                    <div class="recording-card">
+                        <div class="recording-video">
+                            <video controls poster="match3-poster.jpg">
+                                <source src="match3.mp4" type="video/mp4">
+                                متصفحك لا يدعم تشغيل الفيديو.
+                            </video>
+                        </div>
+                        <div class="recording-info">
+                            <h3 class="recording-title">براعم الحسين ب vs نجم الغد</h3>
+                            <p class="recording-details">مرحلة المجموعات - المجموعة ب</p>
+                            <p class="recording-result">النتيجة: 4 - 1</p>
+                            <p class="recording-date">21 نوفمبر 2025</p>
+                        </div>
+                    </div>
+                    
+                    <!-- تسجيل المباراة الرابعة -->
+                    <div class="recording-card">
+                        <div class="recording-video">
+                            <video controls poster="match4-poster.jpg">
+                                <source src="match4.mp4" type="video/mp4">
+                                متصفحك لا يدعم تشغيل الفيديو.
+                            </video>
+                        </div>
+                        <div class="recording-info">
+                            <h3 class="recording-title">غرناطة vs المستوى العالي</h3>
+                            <p class="recording-details">مرحلة المجموعات - المجموعة ب</p>
+                            <p class="recording-result">النتيجة: 5 - 2</p>
+                            <p class="recording-date">21 نوفمبر 2025</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
         
@@ -1448,11 +1755,10 @@
             </div>
             <div class="broadcast-body">
                 <div class="broadcast-video">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/9JidjzPZWd8?si=2p9m-FHKr5aeQ_1e" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/9JidjzPZWd8?si=7jB3RFFQML4sdZYH" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
                 <div class="broadcast-info">
                     <h3>معلومات البث</h3>
-                    <p> برو vs أبطال البدر </p>
                     <p>البث المباشر لمباريات بطولة الحسين الكروية الأولى</p>
                     <p>سيتم بث جميع المباريات مباشرة من ملعب نادي الحسين</p>
                     
@@ -1502,11 +1808,11 @@
                     logo: "pro.png",
                     photo: "pro teame.jpg",
                     description:"",
-                    matches: 1,
-                    wins: 0,
-                    goals: 0,
-                    points: 0,
-                    goalsFor: 0,
+                    matches: 2,
+                    wins: 1,
+                    goals: 2,
+                    points: 3,
+                    goalsFor: 1,
                     goalsAgainst: 8,
                     players: [
                        {name: "أحمد سيلاوي ", position: "", number: 1, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=1"},
@@ -1553,12 +1859,12 @@
                     logo: "bader_logo-.png",
                     photo: "bdr teame.jpg",
                     description: "",
-                    matches: 1,
+                    matches: 2,
                     wins: 0,
                     goals: 0,
                     points: 0,
                     goalsFor: 0,
-                    goalsAgainst: 1,
+                    goalsAgainst: 3,
                     players: [
                          {name: "احمد محمد فلاح عنبوسي", position: "", number: 1, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=1"},
                         {name: "جواد حسين حسن شناعه ", position: "", number: 2, photo: "https://via.placeholder.com/80x80/bbae1a/FFFFFF?text=2"},
@@ -1685,9 +1991,9 @@
             const groups = {
                 groupA: [
                     {id: 'lions', points: 3, goalsFor: 8, goalsAgainst: 0},
-                    {id: 'falcons', points: 0, goalsFor: 0, goalsAgainst: 8},
+                    {id: 'falcons', points: 3, goalsFor: 2, goalsAgainst: 8},
                     {id: 'knights', points: 3, goalsFor: 1, goalsAgainst: 0},
-                    {id: 'lightning', points: 0, goalsFor: 0, goalsAgainst: 1}
+                    {id: 'lightning', points: 0, goalsFor: 0, goalsAgainst: 3}
                 ],
                 groupB: [
                     {id: 'tigers', points: 3, goalsFor: 4, goalsAgainst: 1},
@@ -1700,6 +2006,27 @@
             // ترتيب الفرق في المجموعات حسب النقاط
             groups.groupA.sort((a, b) => b.points - a.points);
             groups.groupB.sort((a, b) => b.points - a.points);
+
+            // بيانات الهدافين
+            const topScorers = [
+                { name:"وائل أشرف", team: "High Level", goals: 4, photo: ".jpg" },
+                { name: "جود الخطيب", team: "براعم الحسين أ", goals: 3, photo: "jod.jpg" },
+                { name: "محمد السخني", team: "براعم الحسين أ", goals: 3, photo: "sigma.jpg" },
+                { name: "نورس", team: "براعم الحسين ب", goals: 2, photo: "nwrs.jpg" },
+                { name: "عبدالرحمن حتامله", team: "براعم الحسين أ", goals: 1, photo: "htaml7.jpg" },
+                { name: "أمير بدارنه", team: "براعم الحسين أ", goals: 1, photo: "bdarn7.jpg" },
+                { name: "جود القبلان", team: "النجم الكبير", goals: 1, photo: ".jpg" },
+                { name: "ليث السوري", team: "نجم الغد", goals: 1, photo: ".jpg" },
+                { name: "احمد حماده", team: "براعم الحسين ب", goals: 1, photo: "hmad7.jpg" },
+                { name: "جواد الطاهر", team: "براعم الحسين ب", goals: 1, photo: "krm.jpg" },
+                { name: "كريم", team: "High Livel", goals: 1, photo: ".jpg" },
+                {name: "امين صابوني", team: "غرناطه", goals:2 , photo:"" },
+                {name: "أوس صياحين", team:"برو", goals:1, photo:""},
+                {name:"أيهم شريف", team:"برو", goals:1, photo:""}
+            ];
+
+            // ترتيب الهدافين حسب عدد الأهداف
+            topScorers.sort((a, b) => b.goals - a.goals);
 
             // عرض الفرق في المجموعات
             function displayGroupTeams() {
@@ -1751,8 +2078,45 @@
                 });
             }
 
-            // استدعاء الدالة لعرض الفرق في المجموعات
+            // عرض قائمة الهدافين
+            function displayTopScorers() {
+                const scorersContainer = document.getElementById('scorersList');
+                scorersContainer.innerHTML = '';
+                
+                topScorers.forEach((scorer, index) => {
+                    const scorerCard = document.createElement('div');
+                    scorerCard.className = 'scorer-card';
+                    
+                    // تحديد لون المركز
+                    let positionClass = '';
+                    if (index === 0) positionClass = 'gold';
+                    else if (index === 1) positionClass = 'silver';
+                    else if (index === 2) positionClass = 'bronze';
+                    
+                    scorerCard.innerHTML = `
+                        <div class="scorer-position ${positionClass}">${index + 1}</div>
+                        <div class="scorer-photo" style="background-image: url('${scorer.photo}')"></div>
+                        <div class="scorer-info">
+                            <div class="scorer-name">${scorer.name}</div>
+                            <div class="scorer-team">${scorer.team}</div>
+                            <div class="scorer-goals">
+                                <i class="fas fa-futbol"></i>
+                                ${scorer.goals} هدف
+                            </div>
+                        </div>
+                        <div class="scorer-stats">
+                            <div class="scorer-goals-count">${scorer.goals}</div>
+                            <div class="scorer-goals-label">هدف</div>
+                        </div>
+                    `;
+                    
+                    scorersContainer.appendChild(scorerCard);
+                });
+            }
+
+            // استدعاء الدوال لعرض البيانات
             displayGroupTeams();
+            displayTopScorers();
 
             // فتح نافذة الفريق
             const teamCards = document.querySelectorAll('.team-card');
