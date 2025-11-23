@@ -74,9 +74,10 @@
             opacity: 0.9;
         }
         
+        /* تحسينات شريط التنقل للهواتف */
         nav {
             background-color: var(--dark-blue);
-            padding: 0.75rem 0;
+            padding: 0.5rem 0;
             position: sticky;
             top: 0;
             z-index: 100;
@@ -88,21 +89,23 @@
             justify-content: center;
             list-style: none;
             flex-wrap: wrap;
+            gap: 5px;
         }
         
         nav li {
-            margin: 3px 8px;
+            margin: 2px;
         }
         
         nav a {
             color: white;
             text-decoration: none;
             font-weight: 500;
-            padding: 6px 12px;
+            padding: 5px 8px;
             border-radius: 4px;
             transition: background-color 0.3s;
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             display: block;
+            white-space: nowrap;
         }
         
         nav a:hover {
@@ -266,57 +269,6 @@
         
         .team-goals-diff {
             background-color: var(--info-blue);
-        }
-        
-        .tournament-bracket {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 1.5rem;
-        }
-        
-        .round {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            width: 100%;
-            margin-bottom: 1.5rem;
-        }
-        
-        .round-title {
-            text-align: center;
-            margin-bottom: 0.75rem;
-            color: var(--primary-blue);
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-        
-        .matches {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-        }
-        
-        .match {
-            background-color: white;
-            border-radius: 6px;
-            padding: 0.75rem;
-            box-shadow: var(--shadow);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .team-match {
-            display: flex;
-            align-items: center;
-        }
-        
-        .vs {
-            margin: 0 10px;
-            color: #6c757d;
-            font-weight: bold;
-            font-size: 0.9rem;
         }
         
         .teams-section {
@@ -958,69 +910,6 @@
             background-color: var(--dark-blue);
         }
         
-        .live-broadcast-section {
-            background-color: white;
-            border-radius: 8px;
-            padding: 1.5rem;
-            box-shadow: var(--shadow);
-            margin-bottom: 1.5rem;
-        }
-        
-        .live-broadcast-container {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-        
-        .live-broadcast-video {
-            width: 100%;
-            height: 0;
-            padding-bottom: 56.25%;
-            position: relative;
-            background-color: #000;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        
-        .live-broadcast-video iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-        
-        .live-broadcast-info {
-            text-align: right;
-        }
-        
-        .live-broadcast-info h3 {
-            color: var(--primary-blue);
-            margin-bottom: 0.75rem;
-        }
-        
-        .live-broadcast-status {
-            display: inline-block;
-            background-color: var(--error-red);
-            color: white;
-            padding: 0.25rem 0.75rem;
-            border-radius: 4px;
-            font-weight: bold;
-            margin-bottom: 1rem;
-        }
-        
-        .live-broadcast-status.live {
-            background-color: var(--error-red);
-            animation: pulse 1.5s infinite;
-        }
-        
-        @keyframes pulse {
-            0% { opacity: 1; }
-            50% { opacity: 0.7; }
-            100% { opacity: 1; }
-        }
-        
         .webfinity-section {
             background-color: white;
             border-radius: 8px;
@@ -1162,7 +1051,17 @@
             overflow-y: auto;
         }
         
+        /* تحسينات إضافية للهواتف */
         @media (max-width: 480px) {
+            nav ul {
+                gap: 3px;
+            }
+            
+            nav a {
+                padding: 4px 6px;
+                font-size: 0.75rem;
+            }
+            
             .container {
                 padding: 0 10px;
             }
@@ -1183,21 +1082,6 @@
             
             .subtitle {
                 font-size: 0.9rem;
-            }
-            
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            nav li {
-                margin: 2px 0;
-                width: 100%;
-                text-align: center;
-            }
-            
-            nav a {
-                padding: 8px;
             }
             
             section {
@@ -1298,6 +1182,15 @@
         }
         
         @media (max-width: 360px) {
+            nav ul {
+                gap: 2px;
+            }
+            
+            nav a {
+                padding: 3px 5px;
+                font-size: 0.7rem;
+            }
+            
             .players-grid {
                 grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
             }
@@ -1943,7 +1836,7 @@
                 <button class="close-broadcast">&times;</button>
             </div>
             <div class="broadcast-body">
-                <div class="broadcast-video">t
+                <div class="broadcast-video">
                     <iframe width="560" height="315" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
                 <div class="broadcast-info">
